@@ -3,13 +3,9 @@ dist: trusty
 sudo: required
 node_js:
   - '6.10'
-  - '7'
-  - '8'
+  - '8.10'
 os:
   - linux
-  - centos
-  - macosx
-  - windows
 # NodeJS v4 requires gcc 4.8
 env:
   - NODE_ENV=travis CXX="g++-4.8" CC="gcc-4.8"
@@ -26,8 +22,7 @@ addons:
     - clang
   chrome: stable
 before_install:
-  - npm install -g mocha
+  - npm install -g mocha webpack serverless
   - npm install
 after_script:
   - npm test
-  
