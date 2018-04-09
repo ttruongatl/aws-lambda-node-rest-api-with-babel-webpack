@@ -1,9 +1,9 @@
-anguage: node_js
+language: node_js
 dist: trusty
 sudo: required
 node_js:
-  - '6.10'
-  - '8.10'
+  - 6.10
+  - 8.10
 os:
   - linux
 # NodeJS v4 requires gcc 4.8
