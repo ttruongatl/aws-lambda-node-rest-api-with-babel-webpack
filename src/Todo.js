@@ -44,24 +44,22 @@ class Todo {
 
   add() {
     return new Promise((resolve, reject) => {
-      let promises = _.map(this.recipients, (recipient)=> {
-        const params = {
-          TableName: process.env.DYNAMODB_TABLE,
-          Item: {
-            id: uuid.v1(),
-            content: this.content,
-            createdAt: moment.utc().toISOString(),
-            updatedAt: moment.utc().toISOString()
-          }
-        };
-        let valid = this._validate(params.Item);
-        if (!valid) {
-          return reject(createErrorResponse(422, ajv.errorsText(validate.errors)));
+      const params = {
+        TableName: process.env.DYNAMODB_TABLE,
+        Item: {
+          id: uuid.v1(),
+          content: this.content,
+          createdAt: moment.utc().toISOString(),
+          updatedAt: moment.utc().toISOString()
         }
-        return dynamoDb.put(params).promise();
-      });
+      };
+      let valid = this._validate(params.Item);
+      if (!valid) {
+        return reject(createErrorResponse(422, ajv.errorsText(validate.errors)));
+      }
+      let promise = dynamoDb.put(params).promise();
       let response;
-      Promise.all(promises)
+      promise
         .then((messages) => {
           response = {
             statusCode: 200,
