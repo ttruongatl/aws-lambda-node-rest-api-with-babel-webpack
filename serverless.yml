@@ -40,7 +40,7 @@ functions:
           path:                   hello
           method:                 get
           cors:                   true
-  schedule:
+  addTodo:
     handler:                      handler.addTodo # required, handler set in AWS Lambda
     events:
       - http:
