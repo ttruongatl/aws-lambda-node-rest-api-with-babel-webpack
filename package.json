@@ -1,8 +1,11 @@
 {
-  "name": "nc-sms",
+  "name": "aws-node-rest-api-with-babel-webpack",
   "version": "1.0.0",
-  "description": "",
-  "main": "src/sms.js",
+  "description": "Using serverless framework to build aws lambda function and compile es6 code with babel & webpack",
+  "main": "handler.js",
+  "directories": {
+    "test": "tests"
+  },
   "dependencies": {
     "ajv": "^6.4.0",
     "babel": "^6.23.0",
@@ -36,12 +39,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thanhtruong0315/nc-sms.git"
+    "url": "git+https://github.com/thanhtruong0315/aws-node-rest-api-with-babel-webpack.git"
   },
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "aws",
+    "lambda",
+    "rest-api",
+    "webpack",
+    "babel",
+    "serverless"
+  ],
+  "author": "Thanh Truong",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/thanhtruong0315/nc-sms/issues"
+    "url": "https://github.com/thanhtruong0315/aws-node-rest-api-with-babel-webpack/issues"
   },
-  "homepage": "https://github.com/thanhtruong0315/nc-sms#readme"
+  "homepage": "https://github.com/thanhtruong0315/aws-node-rest-api-with-babel-webpack#readme"
 }
