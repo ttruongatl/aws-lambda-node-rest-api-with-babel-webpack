@@ -1,0 +1,84 @@
+# Welcome to Serverless!
+#
+# This file is the main config file for your service.
+# It's very minimal at this point and uses default values.
+# You can always add more config options for more control.
+# We've included some commented out config examples here.
+# Just uncomment any of them to get that config option.
+#
+# For full config options, check the docs:
+#    docs.serverless.com
+#
+# Happy Coding!
+
+service:                          todo
+provider:
+  name:                           aws
+  runtime:                        nodejs8.10
+  stage:                          ${opt:stage, 'development'}
+  memorySize:                     128
+  timeout:                        10 # optional, in seconds, default is 6
+  versionFunctions:               false # optional, default is true
+  environment:
+   DYNAMODB_TABLE:                ${self:service}-${opt:stage, self:provider.stage}
+   NODE_ENV:                      ${opt:stage, 'development'}
+  iamRoleStatements:
+    - Effect:                     Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource:                   "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE}"
+functions:
+  hello:                          # A Function
+    handler:                      handler.hello
+    events:
+      - http:
+          path:                   hello
+          method:                 get
+          cors:                   true
+  schedule:
+    handler:                      handler.addTodo # required, handler set in AWS Lambda
+    events:
+      - http:
+          path:                   todo
+          method:                 post
+          cors:                   true
+resources:
+   Resources:
+     TodoDbTable:
+       Type:                      'AWS::DynamoDB::Table'
+       DeletionPolicy:            Retain
+       Properties:
+         AttributeDefinitions:
+           -
+             AttributeName:       id
+             AttributeType:       S
+         KeySchema:
+           -
+             AttributeName:       id
+             KeyType:             HASH
+         ProvisionedThroughput:
+           ReadCapacityUnits:     1
+           WriteCapacityUnits:    1
+         TableName:               ${self:provider.environment.DYNAMODB_TABLE}
+plugins:
+  - serverless-webpack
+  - serverless-dynamodb-local
+  - serverless-offline
+custom:
+  webpackIncludeModules:
+    packagePath:                  './package.json'
+  dynamodb:
+      start:
+        migrate:                  true
+  serverless-offline:
+    babelOptions:
+      presets:                    ["es2015", "stage-2"]
+  webpack:
+    webpackConfig:                'webpack.config.js'   # Name of webpack configuration file
+    includeModules:               true   # Node modules configuration for packaging
+    packager:                     'npm'   # Packager that will be used to package your external modules

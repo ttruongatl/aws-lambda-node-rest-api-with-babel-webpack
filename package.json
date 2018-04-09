@@ -1,0 +1,47 @@
+{
+  "name": "nc-sms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/sms.js",
+  "dependencies": {
+    "ajv": "^6.4.0",
+    "babel": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-preset-es2015": "^6.22.0",
+    "lodash": "^4.17.5",
+    "moment": "^2.22.0",
+    "serverless-runtime-babel": "0.0.6",
+    "uuid": "^2.0.3"
+  },
+  "devDependencies": {
+    "babel-loader": "^7.1.4",
+    "babel-preset-stage-2": "^6.24.1",
+    "chai": "^4.1.2",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^6.1.0",
+    "eslint-plugin-react": "^7.7.0",
+    "json-loader": "^0.5.6",
+    "serverless-dynamodb-local": "^0.2.28",
+    "serverless-offline": "^3.20.1",
+    "serverless-webpack": "^5.1.1",
+    "webpack": "^4.5.0",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "scripts": {
+    "test": "mocha tests --require babel-core/register",
+    "deploy": "serverless deploy -v",
+    "deploy:prod": "serverless deploy -v --stage=production",
+    "postinstall": "sls dynamodb install",
+    "start": "serverless offline start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thanhtruong0315/nc-sms.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thanhtruong0315/nc-sms/issues"
+  },
+  "homepage": "https://github.com/thanhtruong0315/nc-sms#readme"
+}
