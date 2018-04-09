@@ -19,7 +19,7 @@ $ npm install
 ```
 
 ## Deploy to AWS
-Note: We DO NOT implement dynamodb local, so we have to deploy the example to AWS first and then run it later. This step should create your dynamodb table in aws.
+**Note:** We **DO NOT** implement dynamodb local, so we have to deploy the example to AWS first and then run it later. This step should create your dynamodb table in aws.
 
 ```bash
 $ npm run deploy
