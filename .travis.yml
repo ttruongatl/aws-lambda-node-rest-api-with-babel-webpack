@@ -1,0 +1,33 @@
+anguage: node_js
+dist: trusty
+sudo: required
+node_js:
+  - '6.10'
+  - '7'
+  - '8'
+os:
+  - linux
+  - centos
+  - macosx
+  - windows
+# NodeJS v4 requires gcc 4.8
+env:
+  - NODE_ENV=travis CXX="g++-4.8" CC="gcc-4.8"
+services:
+  - mongodb
+# gcc 4.8 requires ubuntu-toolchain-r-test
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-4.8
+    - gcc-4.8
+    - clang
+  chrome: stable
+before_install:
+  - npm install -g mocha
+  - npm install
+after_script:
+  - npm test
+  
