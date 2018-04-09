@@ -4,6 +4,9 @@
 
 This is small JavaScript open-source example, which provides a example for [AWS Lambda](https://aws.amazon.com/lambda/), [Node.js](http://www.nodejs.org/), [Dynamodb](https://aws.amazon.com/dynamodb/). The example also do deployment process with [Serverless Framework](https://serverless.com/), compile (not exactly word) your ES6 JS code with [Babel JS](https://babeljs.io/) and pack everything with [Webpack](https://webpack.js.org/).
 
+## What is next steps
+* Make more test suites
+
 ## Prerequisites
 Make sure you have installed all of the following prerequisites on your development machine:
 * Node.js v6 or later - [Download & Install Node.js](https://nodejs.org/en/download/) and the npm package manager.
