@@ -67,4 +67,4 @@ $ npm test
 We welcome pull requests from the community!
 
 ## License
-[The MIT License](LICENSE.md)
+[The MIT License](LICENSE)
