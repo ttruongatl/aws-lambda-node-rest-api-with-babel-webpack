@@ -1,5 +1,5 @@
 # aws-lambda node rest api with babel webpack
-[![Build Status](https://travis-ci.org/thanhtruong0315/aws-node-rest-api-with-babel-webpack.svg?branch=master)](https://travis-ci.org/thanhtruong0315/aws-node-rest-api-with-babel-webpack)
+[![Build Status](https://travis-ci.org/thanhtruong0315/aws-lambda-node-rest-api-with-babel-webpack.svg?branch=master)](https://travis-ci.org/thanhtruong0315/aws-lambda-node-rest-api-with-babel-webpack)
 [![Dependencies Status](https://david-dm.org/thanhtruong0315/aws-node-rest-api-with-babel-webpack.svg)](https://david-dm.org/thanhtruong0315/aws-node-rest-api-with-babel-webpack)
 
 This is small JavaScript open-source example, which provides a example for [AWS Lambda](https://aws.amazon.com/lambda/), [Node.js](http://www.nodejs.org/), [Dynamodb](https://aws.amazon.com/dynamodb/). The example also do deployment process with [Serverless Framework](https://serverless.com/), compile (not exactly word) your ES6 JS code with [Babel JS](https://babeljs.io/) and pack everything with [Webpack](https://webpack.js.org/).
